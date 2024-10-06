@@ -21,12 +21,12 @@ def send_status_to_discord(status_message):
 # Sunucu durumunu düzenli olarak kontrol et
 while True:
     try:
-        server = MinecraftServer.lookup(minecraft_server_ip)
+        server = MinecraftServer(minecraft_server_ip)  # IP adresini burada kullanın
         status = server.status()
         message = f"🟢 Minecraft sunucusu **açık**. Şu anda {status.players.online} oyuncu bağlı."
     except Exception as e:
         try:
-            server.ping()
+            server.ping()  # Sunucu pingi kontrol et
             message = "🟠 Minecraft sunucusu **sırada**. Lütfen bekleyin."
         except:
             message = "🔴 Minecraft sunucusu **kapalı**."
