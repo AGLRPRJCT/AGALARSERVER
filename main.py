@@ -2,6 +2,19 @@ import os
 import requests
 from mcstatus import MinecraftServer
 import time
+import os
+from flask import Flask  
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Minecraft Sunucu Durum Bildirici Çalışıyor!"
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Render'dan gelen portu al
+    app.run(host='0.0.0.0', port=port)  # Tüm IP adreslerinden gelen bağlantıları dinle
+
 
 # Çevre değişkenlerinden IP adresi ve Webhook URL'sini al
 minecraft_server_ip = os.getenv("MINECRAFT_SERVER_IP")
