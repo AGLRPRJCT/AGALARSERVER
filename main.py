@@ -33,5 +33,5 @@ while True:
 
     send_status_to_discord(message)
     
-    # 10 dakikada bir durumu kontrol et
-    time.sleep(600)  # 600 saniye = 10 dakika
+    # 1 dakikada bir durumu kontrol et
+    time.sleep(60) 
